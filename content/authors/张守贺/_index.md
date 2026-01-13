@@ -9,14 +9,14 @@ last_name: " Zhang"
 # authors:
 #   - "folder"   # 例如 "rendayong"
 
-role: "硕士"
+role: "研究生"
 
 organizations:
   - name: "新疆大学"
     url: ""    # 可留空或填官网
 
 image:
-  focal_point: "Center"   # 头像裁切焦点，可不改
+  focal_point: "Center"   # 头像裁切焦点，可不改 
 
 
 
@@ -32,9 +32,9 @@ education:
 
 social:
 
-  - icon: github
-    icon_pack: fab
-    link: "https://github.com/你的GitHub用户名"
+  # - icon: github
+  #   icon_pack: fab
+  #   link: "https://github.com/你的GitHub用户名"
 
   # 需要再加学术/社交图标就复制一段改下面三行：
   # - icon: google-scholar

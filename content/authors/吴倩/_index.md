@@ -32,9 +32,9 @@ education:
 
 social:
 
-  - icon: github
-    icon_pack: fab
-    link: "https://github.com/W1505296089"
+  # - icon: github
+  #   icon_pack: fab
+  #   link: "https://github.com/W1505296089"
 
   # 需要再加学术/社交图标就复制一段改下面三行：
   # - icon: google-scholar

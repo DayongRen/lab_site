@@ -31,9 +31,9 @@ education:
 
 social:
 
-  - icon: github
-    icon_pack: fab
-    link: "https://github.com/Rabbitttttt218/ZigzagPointMamba"
+  # - icon: github
+  #   icon_pack: fab
+  #   link: "https://github.com/Rabbitttttt218/ZigzagPointMamba"
 
   # 需要再加学术/社交图标就复制一段改下面三行：
   # - icon: google-scholar
@@ -49,5 +49,4 @@ email: "107552304043@xju.edu.cn"
 user_groups:
   - "Students"   # 或 "Researchers" 等（与 people 小部件分组一致）
 ---
-这里写一小段个人介绍(这里写多一点哦)（必填）。
 刁琳双，女，汉族，河南商丘人，中共党员。主要研究方向为点云分类与分割，重点探索三维点云数据的特征提取与高效建模方法。硕士期间，以第一作者身份完成的点云处理相关研究成果被NeurIPS 2025接收，研究聚焦于解决点云数据非结构化特性带来的建模难题，相关算法在公开数据集上表现优异。目前持续深耕点云智能分析领域，希望未来能推动技术在实际场景中的应用落地。

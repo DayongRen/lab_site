@@ -27,9 +27,9 @@ education:
 
 social:
 
-  - icon: github
-    icon_pack: fab
-    link: "https://github.com/你的GitHub用户名"
+  # - icon: github
+  #   icon_pack: fab
+  #   link: "https://github.com/你的GitHub用户名"
 
 
 # Gravatar 邮箱（如果启用）

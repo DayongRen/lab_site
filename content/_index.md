@@ -8,14 +8,14 @@ sections:
   - block: hero
     content:
       title: |
-        Wowchemy
-        Research Group
+        LRMPCI Lab
       image:
-        filename: welcome.jpg
+        filename: shiyans.jpg
       text: |
         <br>
         
-        The **Wowchemy Research Group** has been a center of excellence for Artificial Intelligence research, teaching, and practice since its founding in 2016.
+        LRMPCI 实验室主要从事**智能感知与计算成像**方向的研究，重点关注 **三维点云、医学影像、3D Gaussian Splatting（3DGS）、SLAM 以及聚类方法** 等问题。实验室致力于构建具有理论依据的方法与可落地的系统，用于在真实场景中实现**稳健的理解、重建与分析**。
+
   
   - block: collection
     content:
@@ -45,7 +45,7 @@ sections:
       columns: '1'
       background:
         image: 
-          filename: coders.jpg
+          filename: zhuy.png
           filters:
             brightness: 1
           parallax: false
@@ -58,13 +58,13 @@ sections:
 
   - block: collection
     content:
-      title: Latest Preprints
+      title: Paper Conference
       text: ""
       count: 5
       filters:
         folders:
           - publication
-        publication_type: 'article'
+        publication_type: 'paper-conference'
     design:
       view: citation
       columns: '1'

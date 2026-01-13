@@ -45,9 +45,9 @@ education:
 
 # 社交/学术链接（图标见 HugoBlox 文档）
 social:
-  - icon: github
-    icon_pack: fab
-    link: "https://github.com/<your-github-username>"
+  # - icon: github
+  #   icon_pack: fab
+  #   link: "https://github.com/<your-github-username>"
 
 
 # Gravatar 邮箱（如果启用）

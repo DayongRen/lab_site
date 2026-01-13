@@ -42,14 +42,14 @@ education:
 
 # 社交/学术链接（图标见 HugoBlox 文档）
 social:
-  - icon: envelope
-    icon_pack: fas
-    link: "rendayong_cy {AT} 163.com"
-    icon_pack: ai
-    link: "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ"
-  - icon: github
-    icon_pack: fab
-    link: "https://github.com/gcushen"
+  # - icon: envelope
+  #   icon_pack: fas
+  #   link: "rendayong_cy {AT} 163.com"
+  #   icon_pack: ai
+  #   link: "https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ"
+  # - icon: github
+  #   icon_pack: fab
+  #   link: "https://github.com/gcushen"
 
 # Gravatar 邮箱（如果启用）
 email: "songsensen@xju.edu.cn"

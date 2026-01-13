@@ -6,7 +6,7 @@ first_name: "hao"
 last_name: "Zhang"
 
 
-role: "硕士研究生"
+role: "研究生"
 
 organizations:
   - name: "新疆大学"
@@ -29,9 +29,9 @@ education:
 
 social:
 
-  - icon: github
-    icon_pack: fab
-    link: "https://github.com/Zhanghao1xju"
+  # - icon: github
+  #   icon_pack: fab
+  #   link: "https://github.com/Zhanghao1xju"
 
 
 
