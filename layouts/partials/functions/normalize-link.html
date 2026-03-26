@@ -7,12 +7,17 @@
   {{- if $resource -}}
     {{- $normalized = $resource.RelPermalink -}}
   {{- else -}}
-    {{- $scheme := (urls.Parse $link).Scheme -}}
-    {{- if not $scheme -}}
-      {{- if strings.HasPrefix $link "/" -}}
-        {{- $normalized = (strings.TrimPrefix "/" $link) | relURL -}}
-      {{- else -}}
-        {{- $normalized = $link | relURL -}}
+    {{- $bundleResource := $page.Resources.GetMatch (path.Base $link) -}}
+    {{- if $bundleResource -}}
+      {{- $normalized = $bundleResource.RelPermalink -}}
+    {{- else -}}
+      {{- $scheme := (urls.Parse $link).Scheme -}}
+      {{- if not $scheme -}}
+        {{- if strings.HasPrefix $link "/" -}}
+          {{- $normalized = (strings.TrimPrefix "/" $link) | relURL -}}
+        {{- else -}}
+          {{- $normalized = $link | relURL -}}
+        {{- end -}}
       {{- end -}}
     {{- end -}}
   {{- end -}}
