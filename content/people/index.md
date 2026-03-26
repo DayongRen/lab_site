@@ -3,24 +3,26 @@ title: People
 date: 2022-10-24
 
 type: landing
+design:
+  css_class: people-showcase
 
 sections:
   - block: people
     content:
       title: Meet the Team
-      # Choose which groups/teams of users to display.
-      #   Edit `user_groups` in each user's profile to add them to one or more of these groups.
+      subtitle: Faculty, students, and collaborators shaping the lab's research agenda.
+      text: |
+        The team advances four core directions: **3D Vision & Point Clouds**, **Medical Image Analysis**, **3DGS & SLAM**, and **Clustering & Learning Theory**.
       user_groups:
           - Teacher
           - Principal Investigators
-          # - Researchers
           - Students
           - Administration
-          # - Visitors
           - Alumni
       sort_by: Params.last_name
       sort_ascending: true
     design:
+      css_class: people-lab-grid
       show_interests: false
       show_role: true
       show_social: true

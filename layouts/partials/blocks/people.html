@@ -1,0 +1,86 @@
+{{/* Hugo Blox: People */}}
+
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $show_social := $block.design.show_social | default false }}
+{{ $show_interests := $block.design.show_interests | default true }}
+{{ $show_organizations := $block.design.show_organizations | default false }}
+{{ $show_role := $block.design.show_role | default true }}
+
+<div class="row justify-content-center people-widget lab-people-widget">
+  <div class="col-12">
+    <div class="lab-people-intro">
+      {{ with $block.content.title }}
+      <p class="lab-section-kicker">VIVID Lab</p>
+      <h1 class="mb-0">{{ . | markdownify | emojify }}</h1>
+      {{ end }}
+      {{ with $block.content.subtitle }}
+      <p class="lab-section-subtitle">{{ . | markdownify | emojify }}</p>
+      {{ end }}
+      {{ with $block.content.text }}
+      <div class="lab-people-description">
+        {{ . | emojify | $page.RenderString }}
+      </div>
+      {{ end }}
+    </div>
+  </div>
+
+  {{ range $group := $block.content.user_groups }}
+    {{ $query := where (where site.Pages "Section" "authors") ".Params.user_groups" "intersect" (slice $group) }}
+
+    {{ $sort_by := $block.content.sort_by | default "Params.last_name" }}
+    {{ $sort_by = partial "blox-core/functions/get_sort_by_parameter" $sort_by }}
+    {{ $sort_ascending := $block.content.sort_ascending | default true }}
+    {{ $sort_order := cond $sort_ascending "asc" "desc" }}
+    {{ $query = sort $query $sort_by $sort_order }}
+
+    {{ if $query }}
+    <div class="col-12">
+      <section class="lab-people-group">
+        {{ if gt (len $block.content.user_groups) 1 }}
+        <div class="lab-people-group-header">
+          <span class="lab-group-label">Research Group</span>
+          <h2>{{ $group | markdownify }}</h2>
+        </div>
+        {{ end }}
+
+        <div class="row g-4">
+          {{ range $query }}
+            {{ $person := . }}
+            {{ $avatar := (.Resources.ByType "image").GetMatch "*avatar*" }}
+            {{ $link := "" }}
+            {{ with site.GetPage (printf "/authors/%s" (path.Base .File.Dir)) }}
+              {{ $link = .RelPermalink }}
+            {{ end }}
+            <div class="col-12 col-md-6 col-xl-4">
+              <article class="people-person lab-person-card">
+                {{ $src := "" }}
+                {{ if site.Params.features.avatar.gravatar }}
+                  {{ $src = printf "https://s.gravatar.com/avatar/%s?s=320" (md5 .Params.email) }}
+                {{ else if $avatar }}
+                  {{ $avatar_image := $avatar.Fill "560x560 Center" }}
+                  {{ $src = $avatar_image.RelPermalink }}
+                {{ end }}
+
+                {{ if $src }}
+                  {{ if $link }}<a class="lab-person-image" href="{{ $link }}">{{ end }}
+                  <img width="280" height="280" loading="lazy" class="avatar lab-person-avatar" src="{{ $src }}" alt="{{ $person.Title }}">
+                  {{ if $link }}</a>{{ end }}
+                {{ end }}
+
+                <div class="portrait-title">
+                  <h2>{{ if $link }}<a href="{{ $link }}">{{ end }}{{ $person.Title }}{{ if $link }}</a>{{ end }}</h2>
+                  {{ if and $show_organizations $person.Params.organizations }}{{ range $person.Params.organizations }}<h3>{{ .name }}</h3>{{ end }}{{ end }}
+                  {{ if and $show_role $person.Params.role }}<h3>{{ $person.Params.role | markdownify | emojify }}</h3>{{ end }}
+                  {{ if $show_social }}{{ partial "social_links" $person }}{{ end }}
+                  {{ if and $show_interests $person.Params.interests }}<p class="people-interests">{{ delimit $person.Params.interests ", " | markdownify | emojify }}</p>{{ end }}
+                </div>
+              </article>
+            </div>
+          {{ end }}
+        </div>
+      </section>
+    </div>
+    {{ end }}
+  {{ end }}
+</div>

@@ -1,0 +1,45 @@
+{{ $item := .item }}
+{{ $has_attachments := partial "functions/has_attachments" $item }}
+{{ $venue := "" }}
+{{ if $item.Params.publication_short }}
+  {{ $venue = $item.Params.publication_short | markdownify | plainify }}
+{{ else if $item.Params.publication }}
+  {{ $venue = $item.Params.publication | markdownify | plainify }}
+{{ end }}
+{{ $summary := "" }}
+{{ $summary_plain := "" }}
+{{ with $item.Params.summary }}
+  {{ $summary_plain = . | plainify | lower }}
+{{ end }}
+{{ if and $item.Params.summary (not (in $summary_plain "lorem ipsum")) }}
+  {{ $summary = $item.Params.summary | markdownify | plainify }}
+{{ else if $item.Params.abstract }}
+  {{ $summary = $item.Params.abstract | markdownify | plainify | truncate 220 }}
+{{ end }}
+
+<div class="pub-list-item view-citation lab-publication-card">
+  <div class="lab-publication-body">
+    <div class="lab-publication-topline">
+      <span class="lab-publication-year">{{ $item.Date.Format "2006" }}</span>
+      {{ with $venue }}<span class="lab-publication-venue">{{ . }}</span>{{ end }}
+    </div>
+
+    <div class="lab-publication-title">
+      <a href="{{ $item.RelPermalink }}">{{ $item.Title }}</a>
+    </div>
+
+    <div class="lab-publication-authors">
+      {{ partial "page_metadata_authors" $item }}
+    </div>
+
+    {{ with $summary }}
+    <p class="lab-publication-summary">{{ . }}</p>
+    {{ end }}
+
+    {{ if $has_attachments }}
+    <div class="lab-publication-actions">
+      {{ partial "page_links" (dict "page" $item "is_list" 1) }}
+    </div>
+    {{ end }}
+  </div>
+</div>
