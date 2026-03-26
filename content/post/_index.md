@@ -14,4 +14,4 @@ banner:
   image: ''
 ---
 
-A curated stream of research updates, project progress, and paper announcements across the lab.
+

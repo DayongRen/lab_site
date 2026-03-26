@@ -1,0 +1,21 @@
+{{- $page := .page -}}
+{{- $link := .link | default "" -}}
+{{- $normalized := $link -}}
+
+{{- if and $page $link -}}
+  {{- $resource := $page.Resources.GetMatch $link -}}
+  {{- if $resource -}}
+    {{- $normalized = $resource.RelPermalink -}}
+  {{- else -}}
+    {{- $scheme := (urls.Parse $link).Scheme -}}
+    {{- if not $scheme -}}
+      {{- if strings.HasPrefix $link "/" -}}
+        {{- $normalized = (strings.TrimPrefix "/" $link) | relURL -}}
+      {{- else -}}
+        {{- $normalized = $link | relURL -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $normalized -}}
